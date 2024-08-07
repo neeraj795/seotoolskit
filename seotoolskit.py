@@ -295,7 +295,7 @@ if tab == "Bulk API Indexing":
 if tab == "Internal Linking Using Clusters":
     st.header("Internal Linking Using Clusters")
 
-    sitemap_urls = st.text_area("Enter Sitemap URLs (one per line)").split('\n')
+    sitemap_urls = st.text_area("Enter Sitemap URLs (Refrain to add main sitemap if there are Individual Sitemaps for post, pages, products etc..)").split('\n')
 
     if st.button("Generate Internal Linking Plan"):
         all_filtered_urls = []
