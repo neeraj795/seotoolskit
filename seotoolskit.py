@@ -208,7 +208,7 @@ def download_link(object_to_download, download_filename, download_link_text):
         b64 = base64.b64encode(object_to_download).decode()
     else:
         b64 = base64.b64encode(object_to_download.encode()).decode()
-    return f'<a href="data:file/txt;base64,{b64}" download="{download_filename}">{download_link_text}</a>'
+    return f'<a href="data:file/txt;base64,{b64}" download="{download_filename}" style="border:1px solid #8e44ad; padding: 10px; text-decoration: none; color: #8e44ad;">{download_link_text}</a>'
 
 # Streamlit Interface
 st.set_page_config(
@@ -221,17 +221,31 @@ st.set_page_config(
 st.markdown(
     """
     <style>
-    .main {background-color: #f0f2f6;}
-    h1, h2, h3, h4, h5, h6 {color: #003566;}
-    .sidebar .sidebar-content {background: #003566; color: white;}
+    h1, h2, h3, h4, h5, h6 {color: #8e44ad;}
+    .sidebar .sidebar-content {background: #8e44ad; color: white;}
     .css-1d391kg {color: white;}
-    .css-1offfwp.e1fqkh3o4 {color: #003566;}
-    .stButton>button {background-color: #003566; color: white; border-radius: 10px; padding: 10px;}
-    .stButton>button:hover {background-color: #00509e; color: white;}
-    .stTextInput input {border: 1px solid #003566; border-radius: 5px; padding: 5px;}
-    .stFileUploader div {color: #003566;}
-    .stFileUploader label {font-weight: bold;}
-    .css-1e5imcs {color: #003566;}
+    .css-1offfwp.e1fqkh3o4 {color: #8e44ad;}
+    .stButton>button {background-color: #8e44ad; color: white; border-radius: 10px; padding: 10px; border: 1px solid #8e44ad;}
+    .stButton>button:hover {background-color: #9b59b6; color: white;}
+    .stTextInput input {border: 1px solid #8e44ad; border-radius: 5px; padding: 5px; color: #8e44ad;}
+    .stFileUploader div {color: #8e44ad; border: 1px solid #8e44ad; border-radius: 5px; padding: 10px;}
+    .stFileUploader label {font-weight: bold; color: #8e44ad;}
+    .css-1e5imcs {color: #8e44ad;}
+    body[data-theme='dark'] {
+        --text-primary-color: #bdc3c7;
+        --background-primary-color: #0e1117;
+        --background-secondary-color: #262730;
+        --primary-color: #8e44ad;
+        --secondary-color: #bdc3c7;
+    }
+    .css-2trqyj {border: 1px solid #8e44ad;}
+    .css-1dq8tca {border: 1px solid #8e44ad;}
+    .stylish-name {
+        font-family: 'Comic Sans MS', cursive, sans-serif;
+        color: #9b59b6;
+        font-weight: bold;
+        font-size: 18px;
+    }
     </style>
     """,
     unsafe_allow_html=True
@@ -239,9 +253,9 @@ st.markdown(
 
 st.title("🔍 SEO Toolkit")
 
-st.sidebar.title("App & Tools built by")
-st.sidebar.markdown("[Neeraj Kumar](https://in.linkedin.com/in/neeraj-kumar-seo)")
-st.sidebar.markdown("[Abhishek Kaushal](https://www.linkedin.com/in/abhishek-kaushal-85a15818a/)")
+st.sidebar.title("Tools built by")
+st.sidebar.markdown('<p class="stylish-name"><a href="https://in.linkedin.com/in/neeraj-kumar-seo">Neeraj Kumar</a></p>', unsafe_allow_html=True)
+st.sidebar.markdown('<p class="stylish-name"><a href="https://www.linkedin.com/in/abhishek-kaushal-85a15818a/">Abhishek Kaushal</a></p>', unsafe_allow_html=True)
 
 # Tab Selection
 tab = st.sidebar.selectbox("Choose a tool", ["Bulk API Indexing", "Internal Linking Using Clusters"])
