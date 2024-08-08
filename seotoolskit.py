@@ -4,7 +4,6 @@ import aiohttp
 import pandas as pd
 from oauth2client.service_account import ServiceAccountCredentials
 import json
-from tqdm import tqdm
 from aiohttp.client_exceptions import ServerDisconnectedError
 import requests
 from bs4 import BeautifulSoup
@@ -42,7 +41,7 @@ async def indexURL(http, urls):
     tasks = []
 
     async with aiohttp.ClientSession() as session:
-        for url in tqdm(urls, desc="Processing URLs", unit="url"):
+        for url in urls:
             tasks.append(send_url(session, http, url))
 
         results = await asyncio.gather(*tasks)
@@ -168,7 +167,7 @@ def visualize_internal_linking(linking_plan):
         x=[pos[node][0] for node in G.nodes()],
         y=[pos[node][1] for node in G.nodes()],
         text=[node for node in G.nodes()],
-        mode='markers+text',
+        mode='markers',
         hoverinfo='text',
         marker=dict(
             showscale=True,
@@ -192,7 +191,7 @@ def visualize_internal_linking(linking_plan):
                         hovermode='closest',
                         margin=dict(b=20, l=5, r=5, t=40),
                         annotations=[dict(
-                            text="Network graph made by Plotly",
+                            text="Internal Linking Network Graph",
                             showarrow=False,
                             xref="paper", yref="paper",
                             x=0.005, y=-0.002
@@ -298,29 +297,44 @@ if tab == "Internal Linking Using Clusters":
     sitemap_urls = st.text_area("Enter Sitemap URLs (Refrain to add main sitemap if there are Individual Sitemaps for post, pages, products etc..)").split('\n')
 
     if st.button("Generate Internal Linking Plan"):
+        progress_bar = st.progress(0)
         all_filtered_urls = []
-        for sitemap_url in tqdm(sitemap_urls, desc="Fetching URLs from sitemaps"):
+        total_steps = len(sitemap_urls) + 2  # 1 step for fetching URLs, 1 step for generating the plan
+        current_step = 0
+
+        for sitemap_url in sitemap_urls:
             urls = get_urls_from_sitemap(sitemap_url)
             filtered_urls = filter_urls(urls)
             all_filtered_urls.extend(filtered_urls)
+            current_step += 1
+            progress = min(100, int((current_step / total_steps) * 100))
+            progress_bar.progress(progress)
 
         page_contents = []
         valid_urls = []
-        for url in tqdm(all_filtered_urls, desc="Fetching page contents"):
+        total_steps += len(all_filtered_urls)  # Add the steps for fetching page content
+        for url in all_filtered_urls:
             title, heading, content = fetch_page_content(url)
             if content:
                 page_contents.append(f"{title} {heading} {content}")
                 valid_urls.append(url)
+            current_step += 1
+            progress = min(100, int((current_step / total_steps) * 100))
+            progress_bar.progress(progress)
 
         tfidf_matrix, vectorizer = calculate_similarity(page_contents)
         labels = cluster_urls(tfidf_matrix)
 
         linking_plan = create_internal_linking_plan(valid_urls, labels)
+        current_step += 1
+        progress = min(100, int((current_step / total_steps) * 100))
+        progress_bar.progress(progress)
 
         excel_file = save_to_excel(valid_urls, labels, linking_plan, 'internal_linking_plan.xlsx')
-
         st.success("Internal linking plan generated successfully!")
 
+        progress_bar.progress(100)  # Ensure the progress bar reaches 100% at the end
+        
         st.write("Download the internal linking plan:")
         st.markdown(download_link(open(excel_file, 'rb').read(), 'internal_linking_plan.xlsx', 'Download Excel file'), unsafe_allow_html=True)
 
