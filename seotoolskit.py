@@ -17,7 +17,7 @@ import os
 
 # Set the page configuration as the first Streamlit command
 st.set_page_config(
-    page_title="SEO Toolkit: Bulk API Indexing & Internal Linking",
+    page_title="SEO Toolkit - Bulk API Indexing & Internal Linking",
     page_icon="🔍",
     layout="wide",
     initial_sidebar_state="expanded",
@@ -251,6 +251,7 @@ st.markdown(
 )
 
 st.title("🔍 SEO Toolkit")
+st.description("SEO Toolkit")
 
 st.sidebar.title("Tools built by")
 st.sidebar.markdown('<p class="stylish-name"><a href="https://in.linkedin.com/in/neeraj-kumar-seo">Neeraj Kumar</a></p>', unsafe_allow_html=True)
