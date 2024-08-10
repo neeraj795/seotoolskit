@@ -18,6 +18,7 @@ import os
 # Set the page configuration as the first Streamlit command
 st.set_page_config(
     page_title="SEO Toolkit: Bulk API Indexing & Internal Linking",
+    page_description="SEO Toolkit: Bulk API Indexing & Internal Linking",
     page_icon="🔍",
     layout="wide",
     initial_sidebar_state="expanded",
