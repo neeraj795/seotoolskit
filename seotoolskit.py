@@ -18,7 +18,6 @@ import os
 # Set the page configuration as the first Streamlit command
 st.set_page_config(
     page_title="SEO Toolkit - Bulk API Indexing & Internal Linking",
-<meta name="title" content="TITLE">
 <meta name="description" content="DESCRIPTION">
 <meta property="og:type" content="website">
     page_icon="🔍",
