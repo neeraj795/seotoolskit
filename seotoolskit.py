@@ -251,7 +251,10 @@ st.markdown(
 )
 
 st.title("🔍 SEO Toolkit")
-st.description("SEO Toolkit")
+# Description below the title
+st.markdown("""
+### Leverage advanced SEO Toolkit to optimize your website with bulk URL indexing and intelligent internal linking with clusters to boost search engine visibility and improve SEO performance.
+""")
 
 st.sidebar.title("Tools built by")
 st.sidebar.markdown('<p class="stylish-name"><a href="https://in.linkedin.com/in/neeraj-kumar-seo">Neeraj Kumar</a></p>', unsafe_allow_html=True)
