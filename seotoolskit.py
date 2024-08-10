@@ -250,15 +250,13 @@ st.markdown(
     unsafe_allow_html=True
 )
 
-st.title("🔍 <h1>SEO Toolkit</h1>",
-unsafe_allow_html=True
-)
+st.title("🔍 SEO Toolkit")
 # Description below the title
 st.markdown("""<p style='font-size:14px;'>Leverage advanced SEO Toolkit to optimize your website with bulk URL indexing and intelligent internal linking with clusters to boost search engine visibility and improve SEO performance.</p>""",
             unsafe_allow_html=True
 )
 
-st.sidebar.title("SEO Tools Built By")
+st.sidebar.title("<h1>SEO Tools</h1> Built By", unsafe_allow_html=True)
 st.sidebar.markdown('<p class="stylish-name"><a href="https://in.linkedin.com/in/neeraj-kumar-seo">Neeraj Kumar</a></p>', unsafe_allow_html=True)
 st.sidebar.markdown('<p class="stylish-name"><a href="https://www.linkedin.com/in/abhishek-kaushal-85a15818a/">Abhishek Kaushal</a></p>', unsafe_allow_html=True)
 
