@@ -17,18 +17,11 @@ import os
 
 # Set the page configuration as the first Streamlit command
 st.set_page_config(
-    page_title="SEO Toolkit",
+    page_title="SEO Toolkit: Bulk API Indexing & Internal Linking",
     page_icon="🔍",
     layout="wide",
     initial_sidebar_state="expanded",
 )
-
-# SEO Enhancements: Adding meta tags
-st.markdown("""
-    <meta name="description" content="SEO Toolkit: Optimize and index your website URLs with advanced features like bulk API indexing and internal linking using clusters.">
-    <meta name="keywords" content="SEO, URL Indexing, Internal Linking, Clustering, Google Indexing API, Streamlit">
-    <title>SEO Toolkit: Bulk Indexing & Internal Linking</title>
-    """, unsafe_allow_html=True)
 
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
 
