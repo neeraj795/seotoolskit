@@ -15,6 +15,13 @@ import logging
 import base64
 import os
 
+# SEO Enhancements: Adding meta tags
+st.markdown("""
+    <meta name="description" content="SEO Toolkit: Optimize and index your website URLs with advanced features like bulk API indexing and internal linking using clusters.">
+    <meta name="keywords" content="SEO, Bulk URL Indexing, Internal Linking, Clustering, Google Indexing API, Python SEO">
+    <title>SEO Toolkit: Bulk Indexing & Internal Linking</title>
+    """, unsafe_allow_html=True)
+
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
 
 # Constants for Indexing
