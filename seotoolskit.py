@@ -250,7 +250,9 @@ st.markdown(
     unsafe_allow_html=True
 )
 
-st.title("🔍 <h1>SEO Toolkit</h1>")
+st.title("🔍 <h1>SEO Toolkit</h1>",
+unsafe_allow_html=True
+)
 # Description below the title
 st.markdown("""<p style='font-size:14px;'>Leverage advanced SEO Toolkit to optimize your website with bulk URL indexing and intelligent internal linking with clusters to boost search engine visibility and improve SEO performance.</p>""",
             unsafe_allow_html=True
