@@ -224,14 +224,6 @@ def download_link(object_to_download, download_filename, download_link_text):
         b64 = base64.b64encode(object_to_download.encode()).decode()
     return f'<a href="data:file/txt;base64,{b64}" download="{download_filename}" style="border:1px solid #8e44ad; padding: 10px; text-decoration: none; color: #8e44ad;">{download_link_text}</a>'
 
-# Streamlit Interface
-st.set_page_config(
-    page_title="SEO Toolkit",
-    page_icon="🔍",
-    layout="wide",
-    initial_sidebar_state="expanded",
-)
-
 st.markdown(
     """
     <style>
