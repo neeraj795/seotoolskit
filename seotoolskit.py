@@ -15,10 +15,18 @@ import logging
 import base64
 import os
 
+# Set the page configuration
+st.set_page_config(
+    page_title="SEO Toolkit",
+    page_icon="🔍",
+    layout="wide",
+    initial_sidebar_state="expanded",
+)
+
 # SEO Enhancements: Adding meta tags
 st.markdown("""
     <meta name="description" content="SEO Toolkit: Optimize and index your website URLs with advanced features like bulk API indexing and internal linking using clusters.">
-    <meta name="keywords" content="SEO, Bulk URL Indexing, Internal Linking, Clustering, Google Indexing API, Python SEO">
+    <meta name="keywords" content="SEO, URL Indexing, Internal Linking, Clustering, Google Indexing API, Streamlit">
     <title>SEO Toolkit: Bulk Indexing & Internal Linking</title>
     """, unsafe_allow_html=True)
 
