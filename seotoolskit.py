@@ -256,7 +256,7 @@ st.markdown("""<p style='font-size:14px;'>Leverage advanced SEO Toolkit to optim
             unsafe_allow_html=True
 )
 
-st.sidebar.title("Tools built by")
+st.sidebar.title("SEO Tools Built By")
 st.sidebar.markdown('<p class="stylish-name"><a href="https://in.linkedin.com/in/neeraj-kumar-seo">Neeraj Kumar</a></p>', unsafe_allow_html=True)
 st.sidebar.markdown('<p class="stylish-name"><a href="https://www.linkedin.com/in/abhishek-kaushal-85a15818a/">Abhishek Kaushal</a></p>', unsafe_allow_html=True)
 
