@@ -15,7 +15,7 @@ import logging
 import base64
 import os
 
-# Set the page configuration
+# Set the page configuration as the first Streamlit command
 st.set_page_config(
     page_title="SEO Toolkit",
     page_icon="🔍",
