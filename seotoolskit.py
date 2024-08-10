@@ -252,7 +252,7 @@ st.markdown(
 
 st.title("🔍 SEO Toolkit")
 # Description below the title
-st.header("""<p style='font-size:14px;'>Leverage advanced SEO Toolkit to optimize your website with bulk URL indexing and intelligent internal linking with clusters to boost search engine visibility and improve SEO performance.</p>""",
+st.text("""<p style='font-size:14px;'>Leverage advanced SEO Toolkit to optimize your website with bulk URL indexing and intelligent internal linking with clusters to boost search engine visibility and improve SEO performance.</p>""",
             unsafe_allow_html=True
 )
 
