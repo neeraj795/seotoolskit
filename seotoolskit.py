@@ -255,6 +255,9 @@ st.title("🔍 SEO Toolkit")
 st.markdown("""<p style='font-size:14px;'>Leverage advanced SEO Toolkit to optimize your website with bulk URL indexing and intelligent internal linking with clusters to boost search engine visibility and improve SEO performance.</p>""",
             unsafe_allow_html=True
 )
+st.markdown("""
+    <meta name="description" content="Leverage advanced SEO Toolkit to optimize your website with bulk URL indexing and intelligent internal linking with clusters to boost search engine visibility and improve SEO performance." />
+""", unsafe_allow_html=True)
 
 st.sidebar.title("SEO Tools Built By")
 st.sidebar.markdown('<p class="stylish-name"><a href="https://in.linkedin.com/in/neeraj-kumar-seo">Neeraj Kumar</a></p>', unsafe_allow_html=True)
