@@ -269,7 +269,7 @@ tab = st.sidebar.selectbox("Choose a tool", ["Bulk API Indexing", "Internal Link
 if tab == "Bulk API Indexing":
     st.header("Bulk API Indexing")
     
-    uploaded_files = st.file_uploader("Upload JSON key files (max 5)", type="json", accept_multiple_files=True, help="Upload up to 5 JSON files.")
+    uploaded_files = st.file_uploader("Upload JSON key files", type="json", accept_multiple_files=True, help="You can upload multiple JSON files, each JSON file can send max 200 URL requests.")
     
     if uploaded_files:
         num_files = len(uploaded_files)
