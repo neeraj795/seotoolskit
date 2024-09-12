@@ -348,18 +348,3 @@ if tab == "Internal Linking Using Clusters":
         st.write("Visualization of the internal linking plan:")
         fig = visualize_internal_linking(linking_plan)
         st.plotly_chart(fig)
-
-# Add custom CSS to remove button borders
-st.markdown(
-    '''
-    <style>
-    .stButton>button {
-        border: none;
-        box-shadow: none;
-    }
-    </style>
-    ''', 
-    unsafe_allow_html=True
-)
-
-# The buttons themselves are already defined in the original code
