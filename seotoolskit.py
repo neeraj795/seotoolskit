@@ -227,8 +227,8 @@ st.markdown(
     .stButton>button {background-color: #8e44ad; color: white; border-radius: 10px; padding: 10px; border: 1px solid #8e44ad;}
     .stButton>button:hover {background-color: #9b59b6; color: white;}
     .stTextInput input {border: 1px solid #8e44ad; border-radius: 5px; padding: 5px; color: #8e44ad;}
-    .stFileUploader div {color: #8e44ad; border: 1px solid #8e44ad; border-radius: 5px; padding: 10px;}
-    .stFileUploader label {font-weight: bold; color: #8e44ad;}
+    .stFileer div {color: #8e44ad; border: 1px solid #8e44ad; border-radius: 5px; padding: 10px;}
+    .stFileer label {font-weight: bold; color: #8e44ad;}
     .css-1e5imcs {color: #8e44ad;}
     body[data-theme='dark'] {
         --text-primary-color: #bdc3c7;
@@ -268,8 +268,6 @@ tab = st.sidebar.selectbox("Choose a tool", ["Bulk API Indexing", "Internal Link
 
 if tab == "Bulk API Indexing":
     st.header("Bulk API Indexing")
-    
-    uploaded_files = st.file_uploader("Upload JSON key files", type="json", accept_multiple_files=True, help="You can upload multiple JSON files, each JSON file can send max 200 URL requests.")
     
     if uploaded_files:
         num_files = len(uploaded_files)
