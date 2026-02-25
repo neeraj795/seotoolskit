@@ -261,7 +261,6 @@ st.markdown("""
 
 st.sidebar.title("SEO Tools Built By")
 st.sidebar.markdown('<p class="stylish-name"><a href="https://in.linkedin.com/in/neeraj-kumar-seo">Neeraj Kumar</a></p>', unsafe_allow_html=True)
-st.sidebar.markdown('<p class="stylish-name"><a href="https://www.linkedin.com/in/abhishek-kaushal-85a15818a/">Abhishek Kaushal</a></p>', unsafe_allow_html=True)
 
 # Tab Selection
 tab = st.sidebar.selectbox("Choose a tool", ["Bulk API Indexing", "Internal Linking Using Clusters"])
