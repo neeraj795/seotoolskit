@@ -10,3 +10,6 @@ lxml
 openpyxl
 aiohttp
 oauth2client
+numpy
+google-auth
+google-auth-httplib2
