@@ -81,11 +81,29 @@ st.markdown("""
     /* ── Hide sidebar collapse icon text ── */
     button[kind="header"] { display: none !important; }
     [data-testid="collapsedControl"] {
-        color: transparent !important;
-        background: transparent !important;
+        display: none !important;
     }
-    [data-testid="collapsedControl"] svg {
-        stroke: var(--text-secondary) !important;
+    /* Hide the sidebar collapse/expand arrow text */
+    .stSidebar [data-testid="stSidebarCollapseButton"],
+    [data-testid="stSidebarCollapseButton"] {
+        display: none !important;
+    }
+    /* Nuclear option: hide any element containing keyboard_double */
+    .css-1dp5vir, .e1fqkh3o9 {
+        display: none !important;
+    }
+    section[data-testid="stSidebar"] > div:first-child > button {
+        display: none !important;
+    }
+
+    /* ── Fix help tooltip icon ── */
+    .stFileUploader [data-testid="stTooltipIcon"],
+    [data-testid="stTooltipIcon"] {
+        color: var(--text-muted) !important;
+        opacity: 0.5 !important;
+    }
+    [data-testid="stTooltipIcon"] svg {
+        stroke: var(--text-muted) !important;
     }
 
     /* ── Browse files button fix ── */
@@ -446,6 +464,17 @@ st.markdown("""
         line-height: 1.4;
     }
 </style>
+<script>
+    // Remove keyboard_double_ text from sidebar collapse button
+    const observer = new MutationObserver(() => {
+        document.querySelectorAll('button').forEach(btn => {
+            if (btn.textContent.includes('keyboard_double')) {
+                btn.style.display = 'none';
+            }
+        });
+    });
+    observer.observe(document.body, { childList: true, subtree: true });
+</script>
 """, unsafe_allow_html=True)
 
 
