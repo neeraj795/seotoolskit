@@ -78,6 +78,34 @@ st.markdown("""
     #MainMenu { display: none !important; }
     header[data-testid="stHeader"] { display: none !important; }
 
+    /* ── Hide sidebar collapse icon text ── */
+    button[kind="header"] { display: none !important; }
+    [data-testid="collapsedControl"] {
+        color: transparent !important;
+        background: transparent !important;
+    }
+    [data-testid="collapsedControl"] svg {
+        stroke: var(--text-secondary) !important;
+    }
+
+    /* ── Browse files button fix ── */
+    .stFileUploader button {
+        background: rgba(255, 255, 255, 0.08) !important;
+        color: var(--text-primary) !important;
+        border: 1px solid var(--border-subtle) !important;
+        border-radius: 8px !important;
+        font-family: 'Outfit', sans-serif !important;
+        font-weight: 600 !important;
+        padding: 8px 20px !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+    }
+    .stFileUploader button:hover {
+        background: rgba(255, 255, 255, 0.12) !important;
+        border-color: var(--border-accent) !important;
+        color: var(--accent) !important;
+    }
+
     /* ── Sidebar ── */
     section[data-testid="stSidebar"] {
         background: linear-gradient(180deg, #0d0d14 0%, #0a0a0f 100%) !important;
