@@ -3,38 +3,222 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <meta name="google-site-verification" content="wFg4PrUtyzf1EzB223WFFU5WTKm8dMDBMAZu4Z7A3bo" />
-
     <title>SEO Toolkit — Bulk API Indexing & Internal Linking | By Neeraj Kumar</title>
     <meta name="description" content="Free SEO toolkit for bulk URL indexing via Google's Indexing API and intelligent internal linking suggestions using content clustering. Built by Neeraj Kumar." />
     <meta name="keywords" content="SEO toolkit, bulk indexing, Google Indexing API, internal linking, content clustering, SEO tool, free SEO" />
     <meta name="author" content="Neeraj Kumar" />
-
     <meta property="og:title" content="SEO Toolkit — Bulk Indexing & Internal Linking" />
     <meta property="og:description" content="Free SEO toolkit for bulk URL indexing and intelligent internal linking using content clustering." />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://neeraj795.github.io/seotoolskit/" />
-
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="SEO Toolkit — Bulk Indexing & Internal Linking" />
     <meta name="twitter:description" content="Free SEO toolkit for bulk URL indexing and intelligent internal linking using content clustering." />
-
     <link rel="canonical" href="https://neeraj795.github.io/seotoolskit/" />
-
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800&display=swap" rel="stylesheet">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        html, body { width: 100%; height: 100%; overflow: hidden; }
-        iframe { width: 100%; height: 100%; border: none; display: block; }
+        html, body { width: 100%; height: 100%; overflow-x: hidden; font-family: 'Outfit', sans-serif; background: #0a0a0f; color: #e8e6e1; }
+
+        .page-content {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 60px 24px 40px;
+        }
+        .badge {
+            display: inline-block;
+            background: rgba(212,175,55,0.15);
+            border: 1px solid rgba(212,175,55,0.3);
+            color: #d4af37;
+            padding: 6px 16px;
+            border-radius: 100px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            margin-bottom: 16px;
+        }
+        h1 {
+            font-size: 2.6rem;
+            font-weight: 800;
+            letter-spacing: -0.03em;
+            line-height: 1.15;
+            margin-bottom: 16px;
+        }
+        h1 span { color: #d4af37; }
+        .subtitle {
+            color: rgba(232,230,225,0.5);
+            font-size: 1.1rem;
+            line-height: 1.7;
+            max-width: 640px;
+            margin-bottom: 40px;
+        }
+        .features {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            margin-bottom: 40px;
+        }
+        .feature {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.06);
+            border-radius: 14px;
+            padding: 20px 22px;
+        }
+        .feature-icon { font-size: 1.4rem; margin-bottom: 8px; }
+        .feature h3 { font-size: 0.95rem; font-weight: 700; margin-bottom: 4px; }
+        .feature p { font-size: 0.8rem; color: rgba(232,230,225,0.45); line-height: 1.5; }
+
+        .cta-btn {
+            display: inline-block;
+            background: linear-gradient(135deg, #d4af37, #c9a227);
+            color: #0a0a0f;
+            padding: 14px 36px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1rem;
+            margin-bottom: 20px;
+            transition: transform 0.2s, box-shadow 0.2s;
+            box-shadow: 0 4px 20px rgba(212,175,55,0.2);
+        }
+        .cta-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(212,175,55,0.3); }
+
+        .app-frame {
+            width: 100%;
+            border: 1px solid rgba(255,255,255,0.06);
+            border-radius: 16px;
+            overflow: hidden;
+            margin: 40px 0;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+        }
+        .app-frame iframe {
+            width: 100%;
+            height: 80vh;
+            border: none;
+            display: block;
+        }
+
+        .section {
+            margin: 60px 0;
+        }
+        .section h2 {
+            font-size: 1.6rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+            letter-spacing: -0.02em;
+        }
+        .section h2 span { color: #d4af37; }
+        .section p, .section li {
+            color: rgba(232,230,225,0.5);
+            line-height: 1.8;
+            font-size: 0.95rem;
+        }
+        .section ul {
+            list-style: none;
+            padding: 0;
+        }
+        .section li {
+            padding: 8px 0;
+            padding-left: 24px;
+            position: relative;
+        }
+        .section li::before {
+            content: "◆";
+            color: #d4af37;
+            position: absolute;
+            left: 0;
+            font-size: 0.6rem;
+            top: 13px;
+        }
+
+        .author {
+            margin-top: 60px;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255,255,255,0.06);
+            color: rgba(232,230,225,0.4);
+            font-size: 0.85rem;
+        }
+        .author a { color: #d4af37; text-decoration: none; font-weight: 600; }
+
+        @media (max-width: 600px) {
+            h1 { font-size: 1.8rem; }
+            .features { grid-template-columns: 1fr; }
+            .app-frame iframe { height: 60vh; }
+        }
     </style>
 </head>
 <body>
-    <iframe
-        src="https://seotoolkit.streamlit.app/?embed=true"
-        title="SEO Toolkit — Bulk API Indexing & Internal Linking"
-        allow="clipboard-write"
-        loading="eager"
-    ></iframe>
+
+    <div class="page-content">
+        <div class="badge">Free SEO Tool</div>
+        <h1>Bulk URL Indexing & <span>Internal Linking</span> Toolkit</h1>
+        <p class="subtitle">Submit hundreds of URLs to Google's Indexing API with smart rate limiting and multi-account support. Discover content clusters and generate intelligent internal linking strategies — all in one tool.</p>
+
+        <div class="features">
+            <div class="feature">
+                <div class="feature-icon">🔑</div>
+                <h3>Multi-Account Indexing</h3>
+                <p>Upload multiple service account JSON keys. Each handles 200 URLs with automatic rotation between accounts.</p>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">⚡</div>
+                <h3>Smart Rate Limiting</h3>
+                <p>Built-in throttling with exponential backoff prevents 429 errors and maximizes successful submissions.</p>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">🧬</div>
+                <h3>Content Clustering</h3>
+                <p>TF-IDF vectorization and hierarchical clustering groups your pages by semantic similarity automatically.</p>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">🕸️</div>
+                <h3>Internal Link Suggestions</h3>
+                <p>Generates linking recommendations within content clusters with interactive network visualization.</p>
+            </div>
+        </div>
+
+        <a href="#app" class="cta-btn">◆ Launch SEO Toolkit</a>
+
+        <div id="app" class="app-frame">
+            <iframe
+                src="https://seotoolkit.streamlit.app/"
+                title="SEO Toolkit — Bulk API Indexing & Internal Linking"
+                allow="clipboard-write"
+                loading="eager"
+            ></iframe>
+        </div>
+
+        <div class="section">
+            <h2>How <span>Bulk Indexing</span> Works</h2>
+            <p>Google's Indexing API allows website owners to notify Google about new or updated pages. This tool streamlines the process by handling authentication, batching, and error recovery automatically.</p>
+            <ul>
+                <li>Upload your Google service account JSON key files to authenticate</li>
+                <li>Paste URLs directly or upload a CSV file with your URL list</li>
+                <li>The tool submits each URL with controlled concurrency and retry logic</li>
+                <li>Track progress in real-time and download a detailed results report</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>How <span>Internal Linking</span> Works</h2>
+            <p>Effective internal linking helps search engines understand your site structure and distributes page authority across your content. This tool automates the discovery of linking opportunities.</p>
+            <ul>
+                <li>Enter your XML sitemap URLs to fetch all pages on your site</li>
+                <li>The tool crawls each page and extracts content for analysis</li>
+                <li>TF-IDF vectorization converts page content into numerical representations</li>
+                <li>Agglomerative clustering groups semantically similar pages together</li>
+                <li>Pages within the same cluster are suggested as internal linking targets</li>
+                <li>Download the complete linking plan as an Excel file</li>
+            </ul>
+        </div>
+
+        <div class="author">
+            Built by <a href="https://in.linkedin.com/in/neeraj-kumar-seo" target="_blank">Neeraj Kumar</a> — SEO specialist focused on technical SEO and search performance optimization.
+        </div>
+    </div>
 
     <script type="application/ld+json">
     {
@@ -60,5 +244,6 @@
         }
     }
     </script>
+
 </body>
 </html>
