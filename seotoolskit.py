@@ -71,8 +71,12 @@ st.markdown("""
 
     .block-container {
         padding-top: 2rem !important;
+        padding-bottom: 1rem !important;
         max-width: 1100px !important;
     }
+    footer { display: none !important; }
+    #MainMenu { display: none !important; }
+    header[data-testid="stHeader"] { display: none !important; }
 
     /* ── Sidebar ── */
     section[data-testid="stSidebar"] {
@@ -642,6 +646,15 @@ if tool == "Bulk API Indexing":
     st.markdown('<div class="section-label">Step 1 — Service Account Keys</div>', unsafe_allow_html=True)
     uploaded_files = st.file_uploader("Upload JSON key files", type="json", accept_multiple_files=True,
         help="Each service account supports up to 200 URL submissions per day.")
+
+    if not uploaded_files:
+        st.markdown("""
+        <div style="text-align:center; padding: 40px 20px; color: var(--text-muted);">
+            <p style="font-size: 2rem; margin-bottom: 12px;">🔑</p>
+            <p style="font-size: 0.9rem;">Upload your service account JSON key files to get started</p>
+            <p style="font-size: 0.75rem; margin-top: 8px;">Each key supports up to 200 URL submissions per day</p>
+        </div>
+        """, unsafe_allow_html=True)
 
     if uploaded_files:
         num_files = len(uploaded_files)
