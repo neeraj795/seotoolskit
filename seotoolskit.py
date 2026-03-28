@@ -118,6 +118,13 @@ st.markdown("""
         font-family: 'Outfit', sans-serif !important;
     }
 
+    /* ── Labels ── */
+    .stTextArea label, .stTextInput label, .stSelectbox label,
+    .stFileUploader label, .stSlider label, .stCheckbox label {
+        color: var(--text-secondary) !important;
+        font-family: 'Outfit', sans-serif !important;
+    }
+
     /* ── Buttons ── */
     .stButton > button {
         background: linear-gradient(135deg, var(--accent) 0%, var(--accent-soft) 100%) !important;
@@ -164,13 +171,17 @@ st.markdown("""
 
     /* ── Text inputs & areas ── */
     .stTextArea textarea, .stTextInput input {
-        background: rgba(255, 255, 255, 0.03) !important;
+        background: #121218 !important;
         border: 1px solid var(--border-subtle) !important;
         border-radius: 10px !important;
         color: var(--text-primary) !important;
+        caret-color: var(--accent) !important;
         font-family: 'JetBrains Mono', monospace !important;
         font-size: 0.85rem !important;
         transition: border-color 0.2s ease !important;
+    }
+    .stTextArea textarea::placeholder, .stTextInput input::placeholder {
+        color: rgba(232, 230, 225, 0.25) !important;
     }
     .stTextArea textarea:focus, .stTextInput input:focus {
         border-color: var(--border-accent) !important;
@@ -179,21 +190,50 @@ st.markdown("""
 
     /* ── Select boxes ── */
     .stSelectbox > div > div {
-        background: rgba(255, 255, 255, 0.03) !important;
+        background: #121218 !important;
         border: 1px solid var(--border-subtle) !important;
         border-radius: 10px !important;
+        color: var(--text-primary) !important;
+    }
+    .stSelectbox [data-baseweb="select"] {
+        background: #121218 !important;
+    }
+    .stSelectbox [data-baseweb="select"] span,
+    .stSelectbox [data-baseweb="select"] div {
         color: var(--text-primary) !important;
     }
 
     /* ── File uploader ── */
     .stFileUploader > div {
-        background: rgba(255, 255, 255, 0.02) !important;
+        background: #121218 !important;
         border: 1px dashed var(--border-subtle) !important;
         border-radius: 12px !important;
         transition: border-color 0.2s ease !important;
     }
     .stFileUploader > div:hover {
         border-color: var(--border-accent) !important;
+    }
+    .stFileUploader [data-testid="stFileUploaderFile"] {
+        color: var(--text-primary) !important;
+        background: rgba(255, 255, 255, 0.03) !important;
+    }
+    .stFileUploader [data-testid="stFileUploaderFile"] span,
+    .stFileUploader [data-testid="stFileUploaderFile"] small,
+    .stFileUploader [data-testid="stFileUploaderFile"] div {
+        color: var(--text-secondary) !important;
+    }
+    .stFileUploader [data-testid="stFileUploaderDropzone"] {
+        background: #121218 !important;
+    }
+    .stFileUploader [data-testid="stFileUploaderDropzone"] span,
+    .stFileUploader [data-testid="stFileUploaderDropzone"] small,
+    .stFileUploader [data-testid="stFileUploaderDropzone"] div {
+        color: var(--text-secondary) !important;
+    }
+
+    /* ── Slider ── */
+    .stSlider label, .stSlider div {
+        color: var(--text-primary) !important;
     }
 
     /* ── Metrics ── */
